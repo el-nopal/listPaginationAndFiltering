@@ -2,7 +2,7 @@
 
 <hr>
 
-# Description:
+#### Description:
 In this project, you'll enhance the usability of a web page that is displaying way too much information all at once. Long lists don't make for a good user experience on a web page. To make it easier for the user to find information and read the page, you'll add to this project a popular web development technique known as "pagination".
 
 While making these improvements, you'll adhere to an important development principle known as "progressive enhancement". Which in this case basically just means that you'll add JavaScript to enhance the web page, without making the web page dependent upon the JavaScript that you are adding.
