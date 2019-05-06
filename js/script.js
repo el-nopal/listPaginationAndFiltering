@@ -37,8 +37,15 @@ const maxItems = 10;
 ***/
 
 const showPage = (list, page) => {
+  let startIndex = ((i * 10) - 10);
+  let endIndex = (i * 10);
   for (let i = 0; i < studentList.length; i++) {
-    studentList[i];
+    let students = studentList[i];
+    if ( i >= startIndex && i <= endIndex ) {
+       students[i].style.display = 'block';
+    } else {
+       students[i].style.display = 'none';
+    }
   }
 };
 
@@ -49,8 +56,31 @@ const showPage = (list, page) => {
    functionality to the pagination buttons.
 ***/
 
-const appendPageLinks = () => {
+const appendPageLinks = (list) => {
 
+  // <!-- pagination HTML to create dynamically -->
+
+  // <div class="pagination">
+  //   <ul>
+  //     <li>
+  //       <a class="active" href="#">1</a>
+  //     </li>
+  //      <li>
+  //       <a href="#">2</a>
+  //     </li>
+  //      <li>
+  //       <a href="#">3</a>
+  //     </li>
+  //      <li>
+  //       <a href="#">4</a>
+  //     </li>
+  //      <li>
+  //       <a href="#">5</a>
+  //     </li>
+  //   </ul>
+  // </div>
+
+  // <!-- end pagination -->
 };
 
 
