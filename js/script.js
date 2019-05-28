@@ -17,7 +17,9 @@ FSJS project 2 - List Filter and Pagination
    scoped to that function.
 ***/
 
+// a variable to store the student list item elements in the student list.
 const studentList = document.querySelectorAll('li');
+//a variable to store the number of items to show on each “page”
 const maxItems = 10;
 
 
