@@ -3,9 +3,6 @@ Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
 
-// Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
-
-
 /***
    Add your global variables that store the DOM elements you will
    need to reference and/or manipulate.
@@ -16,6 +13,7 @@ FSJS project 2 - List Filter and Pagination
    will only be used inside of a function, then it can be locally
    scoped to that function.
 ***/
+
 
 // a variable to store the student list item elements in the student list.
 const studentList = document.querySelectorAll('li');
@@ -39,6 +37,8 @@ const maxItems = 10;
 ***/
 
 const showPage = (list, page) => {
+  // two variables to store the start index and the end index of the list items to be displayed on the given page.
+  // To make this function dynamic and work with a list of any length, a bit of basic math can be used to determine these values.
   let startIndex = ((i * 10) - 10);
   let endIndex = (i * 10);
   for (let i = 0; i < studentList.length; i++) {
@@ -52,13 +52,31 @@ const showPage = (list, page) => {
 };
 
 
-
 /***
    Create the `appendPageLinks function` to generate, append, and add
    functionality to the pagination buttons.
 ***/
 
 const appendPageLinks = (list) => {
+  //A container DIV element with a class name of “pagination”
+  let div = document.createElement('div');
+  div.className = 'pagination';
+  // append child to page class in HTML
+  let page = document.querySelector('.page');
+  page.appendChild(div);
+
+  let ul = document.createElement('ul');
+  div.appendChild(ul);
+
+  for (let i = 0; i < studentList.length; i++) {
+    studentList[i]
+  }
+
+  let li = document.createElement('li');
+  ul.appendChild(li);
+  li.innerHTML = "Paragraph changed!";
+
+  console.log(div);
 
   // <!-- pagination HTML to create dynamically -->
 
@@ -85,6 +103,6 @@ const appendPageLinks = (list) => {
   // <!-- end pagination -->
 };
 
-
+appendPageLinks();
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
