@@ -61,17 +61,15 @@ const appendPageLinks = (list) => {
     }
   // 5. Add an event listener to each a tag. When they are clicked
   // call the showPage function to display the appropriate page
+  a.addEventListener ('click', (e) => {
+    let a = document.querySelectorAll('a');
     for (let i = 0; i < a.length; i++) {
-      a.addEventListener ('click', (e) => {
-        let a = document.querySelectorAll('a');
-        for (let i = 0; i < a.length; i++) {
-          a[i].className.remove('active');
-        }
-          let activePage = event.target.textContent;
-          activePage.className = "active";
-          showPage(namesList, activePage);
-      });
+      a[i].className = '';
     }
+      let activePage = e.target.textContent;
+      activePage.className = "active";
+      showPage(studentList, activePage);
+  });
 
   } //still in for loop
 };
