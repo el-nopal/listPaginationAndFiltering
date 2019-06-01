@@ -18,8 +18,8 @@ const maxItems = 10;
 const showPage = (list, page) => {
   // two variables to store the start index and the end index of the list items to be displayed on the given page.
   // To make this function dynamic and work with a list of any length, a bit of basic math can be used to determine these values.
-  let startIndex = (page * 10) - 10;
-  let endIndex = page * 10;
+  let startIndex = (page * maxItems) - maxItems;
+  let endIndex = page * maxItems;
   // Loop over the list parameter.
   for (let i = 0; i < list.length; i++) {
     if ( i >= startIndex && i <= endIndex ) {
@@ -34,10 +34,11 @@ const showPage = (list, page) => {
 // =========================
 //  APPEND PAGE LINKS
 // =========================
+
 const appendPageLinks = (list) => {
   // 1. Determine how many pages are needed for the list by dividing the
   // total number of list items by the max number of items per page
-  const pages = Math.ceil (list.length / 10)
+  const pages = Math.ceil (list.length / maxItems);
   // 2. A container DIV element with a class name of “pagination”
   // append child to page class in HTML
   const div = document.createElement('div');
@@ -48,20 +49,31 @@ const appendPageLinks = (list) => {
   const ul = document.createElement('ul');
   div.appendChild(ul);
   // 4. for every page, add li and a tags with the page number text
-  for (let i = 0; i < pages.length; i++) {
+  for (let i = 0; i < pages; i++) { //pages doesnt have a length.
     const li = document.createElement('li');
     const a = document.createElement('a');
     ul.appendChild(li);
     li.appendChild(a);
-    a.addEventListener('click', (e) => {
-      //calling showPage() each time a link to a page is clicked
-      showPage(list, i);
-      for (let i = 0; i < a.length; i++) {
-        a[i].classList.remove('active');
-        event.target.className = 'active';
-      }
-    });
-  }
+    a.href = '#';
+    a.textContent = i +1;
+    if (i === 0) {
+      a.className = 'active';
+    }
+  // 5. Add an event listener to each a tag. When they are clicked
+  // call the showPage function to display the appropriate page
+    for (let i = 0; i < pages; i++) {
+      a.addEventListener ('click', (e) => {
+        let a = document.querySelectorAll('a');
+        for (let i = 0; i < a.length; i++) {
+          a[i].className.remove('active');
+        }
+          let activePage = event.target.textContent;
+          activePage.className = "active";
+          showPage(namesList, activePage);
+      });
+    }
+
+  } //still in for loop
 };
 
 showPage(studentList, 1);
