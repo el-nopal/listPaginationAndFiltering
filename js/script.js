@@ -11,7 +11,6 @@ const studentList =  document.querySelectorAll('.student-item.cf');
 //a variable to store the number of items to show on each “page”
 const maxItems = 10;
 
-
 // =========================
 //  SHOW PAGES FUNCTION
 // =========================
@@ -30,11 +29,9 @@ const showPage = (list, page) => {
   }
 };
 
-
 // =========================
 //  APPEND PAGE LINKS
 // =========================
-
 const appendPageLinks = (list) => {
   // 1. Determine how many pages are needed for the list by dividing the
   // total number of list items by the max number of items per page
@@ -61,17 +58,16 @@ const appendPageLinks = (list) => {
     }
   // 5. Add an event listener to each a tag. When they are clicked
   // call the showPage function to display the appropriate page
-  a.addEventListener ('click', (e) => {
-    let a = document.querySelectorAll('a');
-    for (let i = 0; i < a.length; i++) {
-      a[i].className = '';
-    }
-      let activePage = e.target.textContent;
-      activePage.className = "active";
-      showPage(studentList, activePage);
-  });
-
-  } //still in for loop
+    a.addEventListener ('click', (e) => {
+      let a = document.querySelectorAll('a');
+      for (let i = 0; i < a.length; i++) {
+        a[i].className = ''; //removing active status
+      }
+      let active = e.target.textContent;
+      a[i].className = "active";
+      showPage(studentList, active);
+    });
+  }
 };
 
 showPage(studentList, 1);
