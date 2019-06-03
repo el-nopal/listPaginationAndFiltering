@@ -18,7 +18,7 @@ const showPage = (list, page) => {
   // two variables to store the start index and the end index of the list items to be displayed on the given page.
   // To make this function dynamic and work with a list of any length, a bit of basic math can be used to determine these values.
   let startIndex = (page * maxItems) - maxItems;
-  let endIndex = page * maxItems;
+  let endIndex = (page * maxItems)-1;
   // Loop over the list parameter.
   for (let i = 0; i < list.length; i++) {
     if ( i >= startIndex && i <= endIndex ) {
